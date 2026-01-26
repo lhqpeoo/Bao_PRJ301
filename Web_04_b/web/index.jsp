@@ -1,6 +1,6 @@
 <%-- 
     Document   : index
-    Created on : Jan 26, 2026, 12:56:10 PM
+    Created on : Jan 26, 2026, 10:45:27 AM
     Author     : Lhqpeoo
 --%>
 
@@ -12,10 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="MainController" method="get">
-            a : <input type="text" name="txtA"></br>
-            b : <input type="text" name="txtB"></br>
-            <input type="submit" value="Submit">
-        </form>
+        <h1>Hello World!</h1>
     </body>
 </html>

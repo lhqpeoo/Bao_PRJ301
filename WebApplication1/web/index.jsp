@@ -1,6 +1,6 @@
 <%-- 
     Document   : index
-    Created on : Jan 26, 2026, 12:56:10 PM
+    Created on : Jan 26, 2026, 10:33:10 AM
     Author     : Lhqpeoo
 --%>
 
@@ -12,10 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="MainController" method="get">
-            a : <input type="text" name="txtA"></br>
-            b : <input type="text" name="txtB"></br>
-            <input type="submit" value="Submit">
-        </form>
+        <a href="login.jsp">Login</a>
     </body>
 </html>

@@ -13,7 +13,7 @@
     </head>
     <body>
         <form action="MainController" method="get">
-            a: <input tupe="text" name="txtA"/> <br/>
+            a: <input type="text" name="txtA"/> <br/>
             b: <input type="text" name="txtB"/> <br/>
             <select name="txtOp">
                 <option></option>
