@@ -41,7 +41,7 @@ public class MainController extends HttpServlet {
             double a = Double.parseDouble(txtA);
             double b = Double.parseDouble(txtB);
             out.println(a+b);
-            
+            out.println("<h1>Servlet MainController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
