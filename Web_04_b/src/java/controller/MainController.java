@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.UserDAO;
+import model.UserDTO;
 
 /**
  *
  * @author Lhqpeoo
  */
-public class LogoutController extends HttpServlet {
+public class MainController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,12 +34,30 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        if(session.getAttribute("user")!=null){
-            session.invalidate();
+        String url = "";
+        if (session.getAttribute("user") == null) {
+            String txtUsername = request.getParameter("txtUsername");
+            String txtPassword = request.getParameter("txtPassword");
+            
+            UserDAO udao = new UserDAO();
+            UserDTO user = udao.login(txtUsername, txtPassword);
+
+            if (user != null) {
+                url = "a.jsp";
+
+                session.setAttribute("user", user);
+            } else {
+                url = "login.jsp";
+                request.setAttribute("message", "invailid username or password");
+            }
+        }else{
+            url = "a.jsp";
         }
-        String url = "login.jsp";
-        // Chuyen trang
-        response.sendRedirect(url);
+
+        //chuyen trang
+        RequestDispatcher rd = request.getRequestDispatcher(url);
+        rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

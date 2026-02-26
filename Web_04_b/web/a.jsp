@@ -14,12 +14,17 @@
     </head>
     <body>
         <%
-            UserDTO u = (UserDTO)request.getAttribute("user");
+            UserDTO u = (UserDTO) session.getAttribute("user");
+            if (u != null) {
         %>
         <h1>Welcome, <%=u.getFullName()%> </h1>
         <h2>Bang dieu khien</h2>
         Tinh nang 1 <br/>
         Tinh nang 2 <br/>
         Tinh nang 3 <br/>
+        <%  } else {
+                response.sendRedirect("login.jsp");
+            }
+        %>
     </body>
 </html>
